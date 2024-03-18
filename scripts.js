@@ -21,7 +21,7 @@ const products = [
 
 const addProducts = () => {
   let clutter = '';
-  products.forEach((product) => {
+  products.forEach((product, index) => {
     clutter += `
   <div class="product w-fit rounded-xl p-2 bg-white">
     <div class="image w-[14rem] h-[13rem] bg-zinc-200 rounded-xl overflow-hidden">
@@ -34,7 +34,7 @@ const addProducts = () => {
           <h3 class="font-semibold opacity-20">${product.headline}</h3>
           <h4 class="font-semibold mt-2">$${product.price}</h4>
         </div>
-        <button class="w-10 h-10 rounded-full bg-gradient-to-br from-[#69628a] to-[#040309] text-yellow-400"><i class="ri-add-line"></i></button>
+        <button data-index="${index}" class="w-10 h-10 rounded-full bg-gradient-to-br from-[#69628a] to-[#040309] text-yellow-400 add"><i data-index="${index}" class="ri-add-line add"></i></button>
       </div>
     </div>
   </div>`;
@@ -42,4 +42,15 @@ const addProducts = () => {
 
   document.querySelector('.products').innerHTML = clutter;
 };
+
+let cart = [];
+
+const addToCart = () => {
+  document.querySelector('.products').addEventListener('click', (event) => {
+    if (event.target.classList.contains('add')) {
+      cart.push(products[event.target.dataset.index]);
+    }
+  });
+};
+addToCart();
 addProducts();
