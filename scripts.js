@@ -25,7 +25,7 @@ const addProducts = () => {
     clutter += `
   <div class="product w-fit rounded-xl p-2 bg-white">
     <div class="image w-[14rem] h-[13rem] bg-zinc-200 rounded-xl overflow-hidden">
-    <img src="${product.image}" class="w-full h-full" alt="${product.name}">
+    <img src="${product.image}" class="w-full h-full object-cover" alt="${product.name}">
     </div>
     <div class="data w-full px-2 py-5">
       <h1 class="font-semibold text-xl leading-none tracking-tight">${product.name}</h1>
@@ -34,7 +34,7 @@ const addProducts = () => {
           <h3 class="font-semibold opacity-20">${product.headline}</h3>
           <h4 class="font-semibold mt-2">$${product.price}</h4>
         </div>
-        <button class="w-10 h-10 rounded-full shader text-yellow-400"><i class="ri-add-line"></i></button>
+        <button class="w-10 h-10 rounded-full bg-gradient-to-br from-[#69628a] to-[#040309] text-yellow-400"><i class="ri-add-line"></i></button>
       </div>
     </div>
   </div>`;
