@@ -44,7 +44,6 @@ const addProducts = () => {
 };
 
 let cart = [];
-
 const addToCart = () => {
   document.querySelector('.products').addEventListener('click', (event) => {
     if (event.target.classList.contains('add')) {
@@ -52,5 +51,36 @@ const addToCart = () => {
     }
   });
 };
+
+const showCart = () => {
+  document.querySelector('.carticon').addEventListener('click', () => {
+    document.querySelector('.cartexpnd').classList.toggle('hidden');
+
+    let clutter = '';
+    cart.forEach((product) => {
+      clutter += `
+      <div class="flex gap-2 bg-white p-2 rounded-lg">
+        <div class="w-10 h-10 flex-shrink-0 rounded-lg overflow-hidden">
+          <img class="w-full h-full object-cover" src="${product.image}" />
+        </div>
+        <div>
+          <h3 class="font-semibold"> ${product.name} </h3>
+          <h5 class="text-sm opacity-80 font-semibold"> ${product.price} </h5>
+        </div>
+      </div>
+      `;
+    });
+    document.querySelector('.cartexpnd').innerHTML = clutter;
+  });
+
+  // document.querySelector('.main-body').addEventListener('click', (event) => {
+  //   if (!document.querySelector('.cartexpnd').classList.contains('hidden')) {
+  //     document.querySelector('.cartexpnd').classList.add('hidden');
+  //     console.log('body');
+  //   }
+  // });
+};
+
+showCart();
 addToCart();
 addProducts();
