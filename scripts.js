@@ -72,13 +72,6 @@ const showCart = () => {
     });
     document.querySelector('.cartexpnd').innerHTML = clutter;
   });
-
-  // document.querySelector('.main-body').addEventListener('click', (event) => {
-  //   if (!document.querySelector('.cartexpnd').classList.contains('hidden')) {
-  //     document.querySelector('.cartexpnd').classList.add('hidden');
-  //     console.log('body');
-  //   }
-  // });
 };
 
 showCart();
